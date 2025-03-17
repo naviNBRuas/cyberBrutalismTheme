@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=VT323&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-black text-neon-green antialiased;
+    font-family: 'Share Tech Mono', monospace;
+  }
+}
+
+@layer components {
+  .cyber-container {
+    @apply relative border-2 border-neon-purple p-1 transition-all duration-300;
+  }
+  
+  .cyber-container:hover {
+    @apply border-neon-cyan;
+  }
+  
+  .cyber-container::before {
+    content: '';
+    @apply absolute inset-0 bg-neon-purple/20 transform translate-x-1 translate-y-1 -z-10 transition-all duration-300;
+  }
+
+  .cyber-container:hover::before {
+    @apply bg-neon-cyan/20;
+  }
+
+  .cyber-button {
+    @apply relative px-8 py-4 bg-black border-2 border-neon-cyan 
+           text-neon-cyan uppercase tracking-wider font-bold
+           hover:bg-neon-cyan/20 transition-all duration-300
+           focus:outline-none focus:ring-2 focus:ring-neon-cyan/50
+           active:scale-95;
+  }
+
+  .cyber-text {
+    @apply font-['VT323'] text-4xl;
+  }
+
+  .neon-glow {
+    text-shadow: 0 0 10px currentColor;
+  }
+
+  .glitch {
+    animation: glitch 1s infinite;
+  }
+}
+
+@keyframes glitch {
+  0% {
+    transform: translate(0);
+  }
+  20% {
+    transform: translate(-2px, 2px);
+  }
+  40% {
+    transform: translate(-2px, -2px);
+  }
+  60% {
+    transform: translate(2px, 2px);
+  }
+  80% {
+    transform: translate(2px, -2px);
+  }
+  100% {
+    transform: translate(0);
+  }
+}
